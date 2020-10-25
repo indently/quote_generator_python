@@ -1,6 +1,5 @@
 import tkinter as tk
 import requests
-import asyncio
 from threading import Thread
 
 api = "http://api.quotable.io/random"
@@ -8,11 +7,11 @@ quotes = []
 quote_number = 0
 
 window = tk.Tk()
-window.geometry("900x300")
+window.geometry("900x260")
 window.title("Quote generator")
 window.grid_columnconfigure(0, weight=1)
 window.resizable(False, False)
-window.configure(bg="black")
+window.configure(bg="grey")
 
 
 def preload_quotes():
@@ -61,6 +60,6 @@ button = tk.Button(text="Generate", command=get_random_quote, bg='#0052cc',
                    fg='#ffffff', activebackground='grey', font=("Helvetica", 14))
 button.grid(row=1, column=0, sticky="WE", padx=20, pady=10)
 
-# Execute programme i
+# Execute programme
 if __name__ == "__main__":
     window.mainloop()
