@@ -17,6 +17,7 @@ window.configure(bg="grey")
 def preload_quotes():
     global quotes
 
+    print("***Loading more quotes***")
     for x in range(10):
         random_quote = requests.get(api).json()
         content = random_quote["content"]
@@ -25,6 +26,8 @@ def preload_quotes():
         print(content)
 
         quotes.append(quote)
+
+    print("***Finished loading more quotes!***")
 
 
 # Gets a few quotes before-hand
@@ -40,10 +43,9 @@ def get_random_quote():
     quote_number = quote_number + 1
     print(quote_number)
 
-    if quote_number % 8 == 0:
+    if quotes[quote_number] == quotes[-3]:
         thread = Thread(target=preload_quotes)
         thread.start()
-        print("Finished loading more quotes")
 
 
 # Labels and Buttons (UI)
